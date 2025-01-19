@@ -1,0 +1,22 @@
+#lang racket
+
+(require racket/trace)
+
+(define (* a b)
+  (mult-iter a b))
+
+(define (mult-iter a b)
+  (cond ((or (= a 0) (= b 0))
+         0)
+        ((= a 1)
+         b)
+        ((even? a)
+         (mult-iter (halve a) (double b)))
+        (else
+         (mult-iter (- a 1) (double b)))))
+
+(define (double a) (+ a a))
+
+(define (halve a) (/ a 2))
+
+(trace mult-iter)
