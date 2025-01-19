@@ -30,20 +30,7 @@
         (make-interval (/ 1.0 (upper-bound y))
                        (/ 1.0 (lower-bound y)))))))
 
-(define (width x)
-  (/ (- (upper-bound x) (lower-bound x)) 2))
-
-(define (center x)
-  (/ (+ (lower-bound x) (upper-bound x)) 2))
-
-(define (make-center-width c w)
-  (make-interval (- c w) (+ c w)))
-
-(define (make-center-percent c p)
-  (make-interval (- c (* c p)) (+ c (* c p))))
-
-(define (percentage x)
-  (/ (- (upper-bound x) (center x)) (center x)))
-
-
+(define (width-interval x)
+  (/ (- (upper-bound x) (lower-bound x)) 2.0))
         
+                 
